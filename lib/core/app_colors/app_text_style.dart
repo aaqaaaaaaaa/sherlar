@@ -10,83 +10,11 @@ class AppTextStyle {
       fontWeight: FontWeight.w600,
       fontFamily: fontFamily,
       color: AppColors.primaryColor);
-  // static TextStyle body36w6 = TextStyle(
-  //     fontSize: 36.sp,
-  //     fontWeight: FontWeight.w600,
-  //     fontFamily: fontFamily,
-  //     color: AppColors.primaryColor);
   static TextStyle body20w6 = TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.w600,
       fontFamily: fontFamily,
       color: AppColors.textColor);
-// static TextStyle body48w6 = TextStyle(
-//     fontSize: 48.sp,
-//     fontWeight: FontWeight.w600,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body40w6 = TextStyle(
-//     fontSize: 40.sp,
-//     fontWeight: FontWeight.w600,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body30w6 = TextStyle(
-//     fontSize: 30.sp,
-//     fontWeight: FontWeight.w600,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body30w4 = TextStyle(
-//     fontSize: 30.sp,
-//     fontWeight: FontWeight.w400,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body36w7 = TextStyle(
-//     fontSize: 36.sp,
-//     fontWeight: FontWeight.w700,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body36w6 = TextStyle(
-//     fontSize: 36.sp,
-//     fontWeight: FontWeight.w600,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-// static TextStyle body90w6 = TextStyle(
-//     fontSize: 90.sp,
-//     fontWeight: FontWeight.w600,
-//     fontFamily: fontFamily,
-//     color: AppTheme.text);
-//
-// static TextStyle body24w5 = TextStyle(
-//   fontSize: 24.sp,
-//   fontWeight: FontWeight.w500,
-//   color: AppTheme.text,
-//   fontFamily: fontFamily,
-// );
-// static TextStyle body18w6 = TextStyle(
-//   fontSize: 18.sp,
-//   fontWeight: FontWeight.w600,
-//   color: AppTheme.text,
-//   fontFamily: fFMon,
-// );
-// static TextStyle body24w6 = TextStyle(
-//   fontSize: 24.sp,
-//   fontWeight: FontWeight.w600,
-//   color: AppTheme.text,
-//   fontFamily: fontFamily,
-// );
-//
-// static TextStyle body24w4 = TextStyle(
-//   fontSize: 24.sp,
-//   fontWeight: FontWeight.w400,
-//   color: AppTheme.text,
-//   fontFamily: fontFamily,
-// );
-// static TextStyle body30w7 = TextStyle(
-//   fontSize: 30.sp,
-//   fontWeight: FontWeight.w700,
-//   color: AppTheme.text,
-//   fontFamily: fontFamily,
-// );
 }
 
 class AppDecoration {

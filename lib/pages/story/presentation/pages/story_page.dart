@@ -48,7 +48,7 @@ class _StoryPageState extends State<StoryPage> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.only(top: 20.h),
                       child: SfPdfViewer.network(
-                        'https://docs.google.com/document/d/1qGzXN_95-JTw2sedAiaohr1su_KwF3z0/edit',
+                        'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=12jedqrhPPbISWyLAAN1el1ECz9lTPCpc',
                         scrollDirection: PdfScrollDirection.horizontal,
                         pageLayoutMode: PdfPageLayoutMode.single,
                         // pageSpacing: 0,
