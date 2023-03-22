@@ -91,21 +91,24 @@ class _AppInfoPageState extends State<AppInfoPage> {
                         border: Border.all(
                             color: AppColors.primaryColor, width: 1.h)),
                     margin: EdgeInsets.only(top: 20.h),
-                    child: RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                          text: 'Application was created by\n',
-                          style: AppTextStyle.body20w6,
-                        ),
-                        TextSpan(
-                          text: '</ISOFT>',
-                          style: AppTextStyle.body26w6.copyWith(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w700,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Application was created by\n',
+                            style: AppTextStyle.body20w6,
                           ),
-                        ),
-                      ]),
-                      textAlign: TextAlign.center,
+                          TextSpan(
+                            text: '</International Software>',
+                            style: AppTextStyle.body26w6.copyWith(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ]),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ],
