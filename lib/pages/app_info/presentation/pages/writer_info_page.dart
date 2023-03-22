@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sherlar/core/app_colors/app_text_style.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
-import 'package:sherlar/core/data/content.dart';
 
-class WriterInfoPage extends StatefulWidget {
-  const WriterInfoPage({Key? key}) : super(key: key);
+class AppInfoPage extends StatefulWidget {
+  const AppInfoPage({Key? key}) : super(key: key);
 
   @override
-  State<WriterInfoPage> createState() => _WriterInfoPageState();
+  State<AppInfoPage> createState() => _AppInfoPageState();
 }
 
-class _WriterInfoPageState extends State<WriterInfoPage> {
+class _AppInfoPageState extends State<AppInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,8 +79,33 @@ class _WriterInfoPageState extends State<WriterInfoPage> {
                             color: AppColors.primaryColor, width: 1.h)),
                     margin: EdgeInsets.only(top: 20.h),
                     child: Text(
-                      AppContent.biography,
+                      'Ушбу дастур элимиз суйган ва ардоқлаган шоир, ёзувчи Ғафур Ғулом хотирасига бағишланади.',
                       style: AppTextStyle.body20w6,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(12.h),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6.r),
+                        border: Border.all(
+                            color: AppColors.primaryColor, width: 1.h)),
+                    margin: EdgeInsets.only(top: 20.h),
+                    child: RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: 'Application was created by\n',
+                          style: AppTextStyle.body20w6,
+                        ),
+                        TextSpan(
+                          text: '</ISOFT>',
+                          style: AppTextStyle.body26w6.copyWith(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ]),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],

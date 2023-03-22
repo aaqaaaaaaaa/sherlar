@@ -53,14 +53,17 @@ class _HomePageState extends State<HomePage> {
                     style: AppDecoration.buttonStyle,
                     onPressed: () => Navigator.pushNamed(
                         context, Routes.categoriesPage,
-                        arguments: {'contentList': sherlarList}),
+                        arguments: {
+                          'contentList': sherlarList,
+                          'isHikoya': false,
+                        }),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.menu_book_outlined,
                             color: AppColors.primaryColor),
                         SizedBox(width: 10.w),
-                        Text('She\'rlar', style: AppTextStyle.body26w6),
+                        Text('Шерлар', style: AppTextStyle.body26w6),
                       ],
                     ),
                   ),
@@ -72,14 +75,17 @@ class _HomePageState extends State<HomePage> {
                     style: AppDecoration.buttonStyle,
                     onPressed: () => Navigator.pushNamed(
                         context, Routes.categoriesPage,
-                        arguments: {'contentList': AppContent.hikoyalarList}),
+                        arguments: {
+                          'contentList': AppContent.hikoyalarList,
+                          'isHikoya': true,
+                        }),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.menu_book_outlined,
                             color: AppColors.primaryColor),
                         SizedBox(width: 10.w),
-                        Text('Hikoyalar', style: AppTextStyle.body26w6),
+                        Text('Хикоялар', style: AppTextStyle.body26w6),
                       ],
                     ),
                   ),
@@ -96,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Icon(Icons.info_outline, color: AppColors.primaryColor),
                         SizedBox(width: 10.w),
-                        Text('Yozuvchi haqida', style: AppTextStyle.body26w6),
+                        Text('Ёзувчи хақида', style: AppTextStyle.body26w6),
                       ],
                     ),
                   ),
@@ -111,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                       child: ElevatedButton(
                         style: AppDecoration.buttonStyle,
                         onPressed: () =>
-                            Navigator.pushNamed(context, Routes.writerInfo),
+                            Navigator.pushNamed(context, Routes.appInfo),
                         child: Icon(Icons.info_outline,
                             color: AppColors.primaryColor),
                       ),
@@ -124,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                         style: AppDecoration.buttonStyle,
                         onPressed: () async {
                           await Share.share(
-                              'G\'ofur G\'ulom sherlari\n Play Store: https://play.google.com/store/apps');
+                              'Ғофур Ғулом шерлари\nPlay Store: https://play.google.com/store/apps');
                           // Navigator.pushNamed(context, Routes.writerInfo);
                         },
                         child: Icon(Icons.share, color: AppColors.primaryColor),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sherlar/pages/app_info/presentation/pages/writer_info_page.dart';
 import 'package:sherlar/pages/categories/presentation/pages/categories_page.dart';
 import 'package:sherlar/pages/home/presentation/pages/home_page.dart';
 import 'package:sherlar/pages/story/presentation/pages/story_page.dart';
@@ -7,6 +8,7 @@ import 'package:sherlar/pages/writer_info/presentation/pages/writer_info_page.da
 class Routes {
   static const homePage = '/';
   static const writerInfo = '/writerInfo';
+  static const appInfo = '/appInfo';
   static const categoriesPage = '/categoriesPage';
   static const storyPage = '/storyPage';
 
@@ -26,16 +28,25 @@ class Routes {
             settings: routeSettings,
             builder: (_) => const WriterInfoPage(),
           );
+       case appInfo:
+          return MaterialPageRoute(
+            settings: routeSettings,
+            builder: (_) => const AppInfoPage(),
+          );
         case categoriesPage:
           return MaterialPageRoute(
             settings: routeSettings,
-            builder: (_) => CategoriesPage(contentList: args?['contentList']),
+            builder: (_) => CategoriesPage(
+              contentList: args?['contentList'],
+              isHikoya: args?['isHikoya'],
+            ),
           );
         case storyPage:
           return MaterialPageRoute(
             settings: routeSettings,
             builder: (_) => StoryPage(
               contentModel: args?['content'],
+              isHikoya: args?['isHikoya'],
             ),
           );
 
