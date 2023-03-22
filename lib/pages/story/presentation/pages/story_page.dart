@@ -4,7 +4,6 @@ import 'package:sherlar/core/app_colors/app_text_style.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 import 'package:sherlar/core/model/content_model.dart';
 import 'package:sherlar/pages/categories/presentation/widgets/category_item.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class StoryPage extends StatefulWidget {
   const StoryPage({Key? key, required this.contentModel}) : super(key: key);
@@ -18,7 +17,6 @@ class _StoryPageState extends State<StoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
       body: Container(
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -40,25 +38,21 @@ class _StoryPageState extends State<StoryPage> {
               child: Column(
                 children: [
                   CategoryItemWidget(
-                      alignment: Alignment.center,
-                      title: widget.contentModel.title),
+                    alignment: Alignment.center,
+                    title: widget.contentModel.title,
+                  ),
                   Container(
-                      color: Colors.red,
-                      height: MediaQuery.of(context).size.height * 0.71,
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(top: 20.h),
-                      child: SfPdfViewer.network(
-                        'https://drive.google.com/uc?export=download&confirm=no_antivirus&id=12jedqrhPPbISWyLAAN1el1ECz9lTPCpc',
-                        scrollDirection: PdfScrollDirection.horizontal,
-                        pageLayoutMode: PdfPageLayoutMode.single,
-                        // pageSpacing: 0,
-                        // canShowScrollHead: false,
-                      )
-                      // Text(
-                      //   widget.contentModel.content,
-                      //   style: AppTextStyle.body20w6,
-                      // ),
+                    height: MediaQuery.of(context).size.height * 0.76,
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(top: 20.h),
+                    child: SingleChildScrollView(
+                      padding: EdgeInsets.only(bottom: 50.h),
+                      child: Text(
+                        widget.contentModel.content,
+                        style: AppTextStyle.body20w6.copyWith(),
                       ),
+                    ),
+                  ),
                 ],
               ),
             ),

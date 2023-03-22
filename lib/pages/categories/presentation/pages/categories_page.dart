@@ -3,21 +3,44 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sherlar/core/app_colors/app_text_style.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 import 'package:sherlar/core/data/content.dart';
+import 'package:sherlar/core/model/content_model.dart';
 import 'package:sherlar/pages/categories/presentation/widgets/category_item.dart';
 import 'package:sherlar/routes/routes.dart';
 
 class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({Key? key}) : super(key: key);
+  const CategoriesPage({Key? key, required this.contentList}) : super(key: key);
+  final List<ContentModel> contentList;
 
   @override
   State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
 class _CategoriesPageState extends State<CategoriesPage> {
+  List<ContentModel> resList = [];
+
+  List<ContentModel> searchFunc(String text) {
+    setState(() {});
+    resList = widget.contentList.where((element) {
+      if (text.isNotEmpty) {
+        final titleLower = element.title.toLowerCase();
+        final searchLower = text.toLowerCase();
+        return titleLower.contains(searchLower);
+      } else {
+        return false;
+      }
+    }).toList();
+    return text.isEmpty ? resList = widget.contentList : resList;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    resList = widget.contentList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
       body: Container(
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -41,6 +64,10 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: TextField(
+                    autofocus: true,
+                    onChanged: (value) => searchFunc(value),
+                    cursorColor: AppColors.primaryColor,
+                    style: AppTextStyle.body26w6,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: const Icon(Icons.search, size: 30),
@@ -53,18 +80,18 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 ),
                 Flexible(
                   child: ListView.separated(
-                    itemCount: 1,
+                    itemCount: resList.length,
                     shrinkWrap: true,
                     physics: const BouncingScrollPhysics(),
                     padding: EdgeInsets.symmetric(vertical: 16.h),
                     separatorBuilder: (context, index) =>
                         SizedBox(height: 12.h),
                     itemBuilder: (context, index) => CategoryItemWidget(
-                      title: AppContent.contentList[index].title,
+                      title: resList[index].title,
                       onTap: () {
                         return Navigator.pushNamed(context, Routes.storyPage,
                             arguments: {
-                              'content': AppContent.contentList[index],
+                              'content': resList[index],
                             });
                       },
                     ),

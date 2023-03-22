@@ -18,9 +18,12 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          theme: ThemeData(primaryColor: AppColors.primaryColor),
+          theme: ThemeData(
+              primaryColor: AppColors.primaryColor,
+              focusColor:  AppColors.primaryColor,
+              colorScheme: ColorScheme.fromSwatch()
+                  .copyWith(secondary: AppColors.primaryColor,primary: AppColors.primaryColor)),
           onGenerateRoute: (settings) => Routes.generateRoute(settings),
-          // home: const HomePage(),
         );
       },
     );

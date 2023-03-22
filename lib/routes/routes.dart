@@ -29,7 +29,7 @@ class Routes {
         case categoriesPage:
           return MaterialPageRoute(
             settings: routeSettings,
-            builder: (_) => const CategoriesPage(),
+            builder: (_) => CategoriesPage(contentList: args?['contentList']),
           );
         case storyPage:
           return MaterialPageRoute(

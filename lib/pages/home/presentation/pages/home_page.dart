@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sherlar/core/app_colors/app_text_style.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
+import 'package:sherlar/core/data/content.dart';
+import 'package:sherlar/core/data/sherlar_list.dart';
 import 'package:sherlar/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,8 +51,9 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.only(top: 44.h),
                   child: ElevatedButton(
                     style: AppDecoration.buttonStyle,
-                    onPressed: () =>
-                        Navigator.pushNamed(context, Routes.categoriesPage),
+                    onPressed: () => Navigator.pushNamed(
+                        context, Routes.categoriesPage,
+                        arguments: {'contentList': sherlarList}),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -67,8 +70,9 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.only(top: 16.h),
                   child: ElevatedButton(
                     style: AppDecoration.buttonStyle,
-                    onPressed: () =>
-                        Navigator.pushNamed(context, Routes.categoriesPage),
+                    onPressed: () => Navigator.pushNamed(
+                        context, Routes.categoriesPage,
+                        arguments: {'contentList': AppContent.hikoyalarList}),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -90,8 +94,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.info_outline,
-                            color: AppColors.primaryColor),
+                        Icon(Icons.info_outline, color: AppColors.primaryColor),
                         SizedBox(width: 10.w),
                         Text('Yozuvchi haqida', style: AppTextStyle.body26w6),
                       ],
