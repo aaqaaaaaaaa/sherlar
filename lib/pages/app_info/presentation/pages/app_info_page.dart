@@ -114,6 +114,34 @@ class _AppInfoPageState extends State<AppInfoPage> {
                       ),
                     ),
                   ),
+                  Container(
+                    padding: EdgeInsets.all(12.h),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6.r),
+                        border: Border.all(
+                            color: AppColors.primaryColor, width: 1.h)),
+                    margin: EdgeInsets.only(top: 20.h),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Application was created bu\n',
+                            style: AppTextStyle.body20w6,
+                          ),
+                          TextSpan(
+                            text: '</International Software>',
+                            style: AppTextStyle.body20w6.copyWith(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ]),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
