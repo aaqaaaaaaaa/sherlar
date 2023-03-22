@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sherlar/pages/app_info/presentation/pages/writer_info_page.dart';
+import 'package:sherlar/pages/app_info/presentation/pages/app_info_page.dart';
 import 'package:sherlar/pages/categories/presentation/pages/categories_page.dart';
 import 'package:sherlar/pages/home/presentation/pages/home_page.dart';
 import 'package:sherlar/pages/story/presentation/pages/story_page.dart';

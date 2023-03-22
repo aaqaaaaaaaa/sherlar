@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:sherlar/core/app_colors/app_text_style.dart';
+import 'package:sherlar/core/app_colors/app_theme.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 import 'package:sherlar/core/data/content.dart';
 import 'package:sherlar/core/data/sherlar_list.dart';
