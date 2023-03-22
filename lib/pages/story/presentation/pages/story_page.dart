@@ -40,22 +40,25 @@ class _StoryPageState extends State<StoryPage> {
                       Border.all(color: AppColors.primaryColor, width: 1.w)),
               // padding: EdgeInsets.symmetric(horizontal: 25.w),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   CategoryItemWidget(
                     alignment: Alignment.center,
+                    textAlign: TextAlign.center,
                     title: widget.contentModel.title.toUpperCase(),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height *
-                        (widget.isHikoya ? 0.72 : 0.76),
+                    height: MediaQuery.of(context).size.height * (0.75),
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.only(top: 20.h),
                     child: widget.isHikoya
-                        ? SfPdfViewer.asset(
-                            widget.contentModel.content,
-                            scrollDirection: PdfScrollDirection.horizontal,
-                            pageLayoutMode: PdfPageLayoutMode.single,
-                          )
+                        ? Expanded(
+                          child: SfPdfViewer.asset(
+                              widget.contentModel.content,
+                              scrollDirection: PdfScrollDirection.horizontal,
+                              pageLayoutMode: PdfPageLayoutMode.single,
+                            ),
+                        )
                         : SingleChildScrollView(
                             padding: EdgeInsets.only(bottom: 50.h),
                             child: Text(

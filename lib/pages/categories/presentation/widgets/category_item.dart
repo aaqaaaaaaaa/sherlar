@@ -4,9 +4,10 @@ import 'package:sherlar/core/app_colors/app_theme.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 
 class CategoryItemWidget extends StatelessWidget {
-  const CategoryItemWidget({super.key, this.onTap, this.alignment = Alignment.centerLeft, required this.title});
+  const CategoryItemWidget({super.key, this.onTap, this.alignment = Alignment.centerLeft, required this.title, this.textAlign = null});
   final Function()? onTap;
   final Alignment alignment;
+  final TextAlign? textAlign;
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class CategoryItemWidget extends StatelessWidget {
           child: Text(
             title,
             maxLines: 2,
+            textAlign: textAlign,
             overflow: TextOverflow.ellipsis,
             style: AppTextStyle.body26w6,
           ),

@@ -16,6 +16,7 @@ class _AppInfoPageState extends State<AppInfoPage> {
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
+        alignment: Alignment.center,
         decoration: BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.fill, image: AssetImage(AppImages.bg))),
@@ -33,6 +34,7 @@ class _AppInfoPageState extends State<AppInfoPage> {
                       Border.all(color: AppColors.primaryColor, width: 1.w)),
               // padding: EdgeInsets.symmetric(horizontal: 25.w),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                       padding: EdgeInsets.all(2.h),
@@ -81,6 +83,7 @@ class _AppInfoPageState extends State<AppInfoPage> {
                     child: Text(
                       'Ушбу дастур элимиз суйган ва ардоқлаган шоир, ёзувчи Ғафур Ғулом хотирасига бағишланади.',
                       style: AppTextStyle.body20w6,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
@@ -96,12 +99,12 @@ class _AppInfoPageState extends State<AppInfoPage> {
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
-                            text: 'Application was created by\n',
+                            text: 'Ушбу дастур муаллифи\n',
                             style: AppTextStyle.body20w6,
                           ),
                           TextSpan(
-                            text: '</International Software>',
-                            style: AppTextStyle.body26w6.copyWith(
+                            text: 'Фарзона Каюмова',
+                            style: AppTextStyle.body20w6.copyWith(
                               color: Colors.blue,
                               fontWeight: FontWeight.w700,
                             ),
