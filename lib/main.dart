@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 import 'package:sherlar/routes/routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -20,9 +26,10 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
               primaryColor: AppColors.primaryColor,
-              focusColor:  AppColors.primaryColor,
-              colorScheme: ColorScheme.fromSwatch()
-                  .copyWith(secondary: AppColors.primaryColor,primary: AppColors.primaryColor)),
+              focusColor: AppColors.primaryColor,
+              colorScheme: ColorScheme.fromSwatch().copyWith(
+                  secondary: AppColors.primaryColor,
+                  primary: AppColors.primaryColor)),
           onGenerateRoute: (settings) => Routes.generateRoute(settings),
         );
       },
