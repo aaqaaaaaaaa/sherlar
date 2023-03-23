@@ -131,7 +131,7 @@ class _AppInfoPageState extends State<AppInfoPage> {
                             style: AppTextStyle.body20w6,
                           ),
                           TextSpan(
-                            text: '</International Software>',
+                            text: '<International Software>',
                             style: AppTextStyle.body20w6.copyWith(
                               color: Colors.blue,
                               fontWeight: FontWeight.w700,

@@ -32,9 +32,6 @@ class AppContent {
       title: 'Менинг ўғригина болам',
       content: 'assets/files/Менинг ўғригина болам.pdf',
     ),
-    ContentModel(
-      title: 'Ёдгор',
-      content: "assets/files/G'afur G'ulom. Yodgor (qissa).pdf",
-    ),
+
   ];
 }
