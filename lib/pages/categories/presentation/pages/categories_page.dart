@@ -88,6 +88,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     separatorBuilder: (context, index) =>
                         SizedBox(height: 12.h),
                     itemBuilder: (context, index) => CategoryItemWidget(
+                      isHikoya: false,
                       title: resList[index].title.toUpperCase(),
                       onTap: () {
                         return Navigator.pushNamed(context, Routes.storyPage,

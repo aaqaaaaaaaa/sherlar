@@ -43,12 +43,13 @@ class _StoryPageState extends State<StoryPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CategoryItemWidget(
+                    isHikoya: widget.isHikoya,
                     alignment: Alignment.center,
                     textAlign: TextAlign.center,
                     title: widget.contentModel.title.toUpperCase(),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * (0.75),
+                    height: MediaQuery.of(context).size.height * (0.78),
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.only(top: 20.h),
                     child: widget.isHikoya

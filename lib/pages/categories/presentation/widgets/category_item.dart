@@ -4,11 +4,20 @@ import 'package:sherlar/core/app_colors/app_theme.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 
 class CategoryItemWidget extends StatelessWidget {
-  const CategoryItemWidget({super.key, this.onTap, this.alignment = Alignment.centerLeft, required this.title, this.textAlign = null});
+  const CategoryItemWidget(
+      {super.key,
+      this.onTap,
+      this.alignment = Alignment.centerLeft,
+      required this.title,
+      this.textAlign,
+      required this.isHikoya});
+
   final Function()? onTap;
   final Alignment alignment;
   final TextAlign? textAlign;
   final String title;
+  final bool isHikoya;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,13 +36,24 @@ class CategoryItemWidget extends StatelessWidget {
               color: AppColors.whiteColor,
               borderRadius: BorderRadius.circular(6.r),
               border: Border.all(color: AppColors.primaryColor, width: 1.h)),
-          child: Text(
-            title,
-            maxLines: 2,
-            textAlign: textAlign,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyle.body26w6,
-          ),
+          child: isHikoya
+                  ? FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        title,
+                        maxLines: 2,
+                        textAlign: textAlign,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyle.body26w6,
+                      ),
+                    )
+                  : Text(
+                      title,
+                      maxLines: 2,
+                      textAlign: textAlign,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyle.body26w6,
+                    ),
         ),
       ),
     );
