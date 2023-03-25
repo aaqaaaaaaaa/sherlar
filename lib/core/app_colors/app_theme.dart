@@ -25,16 +25,10 @@ class AppDecoration {
           side: BorderSide(color: AppColors.primaryColor)),
       side: BorderSide(width: 2.h, color: AppColors.primaryColor));
 
-// static BoxDecoration decoration = BoxDecoration(
-//   color: AppTheme.fillColor,
-//   borderRadius: BorderRadius.circular(18.r),
-//   border: Border.all(color: AppTheme.keyboardBorderColor, width: 4.w),
-// );
-//
 }
 
 class AppImages {
-  // static String playIcon = "assets/icons/play_icon.svg";
   static String shoir = "assets/images/shoir.png";
+  static String muallif = "assets/images/photo_2023-03-25_10-11-08.jpg";
   static String bg = "assets/images/bg.jpg";
 }
