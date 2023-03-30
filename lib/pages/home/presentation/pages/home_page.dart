@@ -5,6 +5,7 @@ import 'package:sherlar/core/app_colors/app_theme.dart';
 import 'package:sherlar/core/app_colors/colors.dart';
 import 'package:sherlar/core/data/content.dart';
 import 'package:sherlar/core/data/sherlar_list.dart';
+import 'package:sherlar/pages/copyright/presentation/pages/copyright_page.dart';
 import 'package:sherlar/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -122,8 +123,8 @@ class _HomePageState extends State<HomePage> {
                             color: AppColors.primaryColor),
                       ),
                     ),
-                    SizedBox(width: 10.w),
-                    SizedBox(
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10.w),
                       height: 56.h,
                       width: 56.w,
                       child: ElevatedButton(
@@ -134,6 +135,20 @@ class _HomePageState extends State<HomePage> {
                           // Navigator.pushNamed(context, Routes.writerInfo);
                         },
                         child: Icon(Icons.share, color: AppColors.primaryColor),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 56.h,
+                      width: 56.w,
+                      child: ElevatedButton(
+                        style: AppDecoration.buttonStyle,
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CopyrightPage(),
+                            )),
+                        child: Icon(Icons.description,
+                            color: AppColors.primaryColor),
                       ),
                     ),
                   ],
