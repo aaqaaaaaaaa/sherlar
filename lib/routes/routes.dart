@@ -11,6 +11,7 @@ class Routes {
   static const appInfo = '/appInfo';
   static const categoriesPage = '/categoriesPage';
   static const storyPage = '/storyPage';
+  static const sherlarPage = '/sherlarPage';
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
     try {
@@ -28,7 +29,7 @@ class Routes {
             settings: routeSettings,
             builder: (_) => const WriterInfoPage(),
           );
-       case appInfo:
+        case appInfo:
           return MaterialPageRoute(
             settings: routeSettings,
             builder: (_) => const AppInfoPage(),
@@ -38,6 +39,7 @@ class Routes {
             settings: routeSettings,
             builder: (_) => CategoriesPage(
               contentList: args?['contentList'],
+              contentHikoyaList: args?['contentHikoyaList'],
               isHikoya: args?['isHikoya'],
             ),
           );
@@ -45,8 +47,14 @@ class Routes {
           return MaterialPageRoute(
             settings: routeSettings,
             builder: (_) => StoryPage(
+              contentModel: args?['contentModel'],
+            ),
+          );
+        case sherlarPage:
+          return MaterialPageRoute(
+            settings: routeSettings,
+            builder: (_) => SherlarPage(
               contentModel: args?['content'],
-              isHikoya: args?['isHikoya'],
             ),
           );
 

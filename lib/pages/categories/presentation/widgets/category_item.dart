@@ -30,30 +30,48 @@ class CategoryItemWidget extends StatelessWidget {
         child: Container(
           alignment: alignment,
           margin: EdgeInsets.all(6.h),
-          padding: EdgeInsets.all(12.h),
+          padding: isHikoya
+              ? EdgeInsets.fromLTRB(2.w, 12.h, 12.w, 12.h)
+              : EdgeInsets.all(12.h),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               color: AppColors.whiteColor,
               borderRadius: BorderRadius.circular(6.r),
               border: Border.all(color: AppColors.primaryColor, width: 1.h)),
           child: isHikoya
-                  ? FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        title,
-                        maxLines: 2,
-                        textAlign: textAlign,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyle.body26w6,
+              ? Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        onPressed: () => Navigator.pop(context),
+                        icon: Icon(Icons.arrow_back,
+                            color: AppColors.primaryColor, size: 28),
                       ),
-                    )
-                  : Text(
-                      title,
-                      maxLines: 2,
-                      textAlign: textAlign,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.body26w6,
                     ),
+                    Positioned(
+                      right: 15.w,
+                      left: 40.w,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          title,
+                          textAlign: textAlign,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextStyle.body26w6,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              : Text(
+                  title,
+                  maxLines: 2,
+                  textAlign: textAlign,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyle.body26w6,
+                ),
         ),
       ),
     );

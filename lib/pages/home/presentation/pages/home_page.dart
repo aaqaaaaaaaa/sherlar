@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                         context, Routes.categoriesPage,
                         arguments: {
                           'contentList': sherlarList,
+                          'contentHikoyaList': AppContent.hikoyalarList,
                           'isHikoya': false,
                         }),
                     child: Row(
@@ -77,7 +78,8 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () => Navigator.pushNamed(
                         context, Routes.categoriesPage,
                         arguments: {
-                          'contentList': AppContent.hikoyalarList,
+                          'contentHikoyaList': AppContent.hikoyalarList,
+                          'contentList': sherlarList,
                           'isHikoya': true,
                         }),
                     child: Row(

@@ -8,9 +8,13 @@ import 'package:sherlar/routes/routes.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage(
-      {Key? key, required this.contentList, required this.isHikoya})
+      {Key? key,
+      required this.contentList,
+      required this.contentHikoyaList,
+      required this.isHikoya})
       : super(key: key);
   final List<ContentModel> contentList;
+  final List<ContentHikoyaModel> contentHikoyaList;
   final bool isHikoya;
 
   @override
@@ -19,6 +23,7 @@ class CategoriesPage extends StatefulWidget {
 
 class _CategoriesPageState extends State<CategoriesPage> {
   List<ContentModel> resList = [];
+  List<ContentHikoyaModel> resHikoyaList = [];
 
   List<ContentModel> searchFunc(String text) {
     setState(() {});
@@ -34,10 +39,25 @@ class _CategoriesPageState extends State<CategoriesPage> {
     return text.isEmpty ? resList = widget.contentList : resList;
   }
 
+  List<ContentHikoyaModel> searchHikFunc(String text) {
+    setState(() {});
+    resHikoyaList = widget.contentHikoyaList.where((element) {
+      if (text.isNotEmpty) {
+        final titleLower = element.title.toLowerCase();
+        final searchLower = text.toLowerCase();
+        return titleLower.contains(searchLower);
+      } else {
+        return false;
+      }
+    }).toList();
+    return text.isEmpty ? resHikoyaList = widget.contentHikoyaList : resHikoyaList;
+  }
+
   @override
   void initState() {
     super.initState();
     resList = widget.contentList;
+    resHikoyaList = widget.contentHikoyaList;
   }
 
   @override
@@ -66,7 +86,9 @@ class _CategoriesPageState extends State<CategoriesPage> {
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: TextField(
-                    onChanged: (value) => searchFunc(value),
+                    onChanged: (value) => widget.isHikoya
+                        ? searchHikFunc(value)
+                        : searchFunc(value),
                     cursorColor: AppColors.primaryColor,
                     style: AppTextStyle.body26w6,
                     decoration: InputDecoration(
@@ -81,7 +103,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
                 ),
                 Flexible(
                   child: ListView.separated(
-                    itemCount: resList.length,
+                    itemCount:
+                        widget.isHikoya ? resHikoyaList.length : resList.length,
                     shrinkWrap: true,
                     physics: const BouncingScrollPhysics(),
                     padding: EdgeInsets.symmetric(vertical: 16.h),
@@ -89,13 +112,17 @@ class _CategoriesPageState extends State<CategoriesPage> {
                         SizedBox(height: 12.h),
                     itemBuilder: (context, index) => CategoryItemWidget(
                       isHikoya: false,
-                      title: resList[index].title.toUpperCase(),
+                      title: widget.isHikoya
+                          ? resHikoyaList[index].title
+                          : resList[index].title.toUpperCase(),
                       onTap: () {
-                        return Navigator.pushNamed(context, Routes.storyPage,
-                            arguments: {
-                              'content': resList[index],
-                              'isHikoya': widget.isHikoya,
-                            });
+                        if (widget.isHikoya) {
+                          Navigator.pushNamed(context, Routes.storyPage,
+                              arguments: {'contentModel': resHikoyaList[index]});
+                        } else {
+                          Navigator.pushNamed(context, Routes.sherlarPage,
+                              arguments: {'content': resList[index]});
+                        }
                       },
                     ),
                   ),
